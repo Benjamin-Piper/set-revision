@@ -1,0 +1,100 @@
+* {
+    --formRowHeight: 60px;
+}
+
+.dieFace {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+/* FORM */
+
+.formRow {
+    height: var(--formRowHeight);
+    margin: 10px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+#shapeRow {
+    height: calc(var(--formRowHeight) * 2)
+}
+
+.radioLabel {
+    width: calc(var(--formRowHeight) / 2);
+    height: calc(var(--formRowHeight) / 2);
+    margin: 0 20px;
+
+    transition: var(--delay);
+}
+
+#shapeRow .radioLabel {
+    height: var(--formRowHeight);
+}
+
+.radioLabel.checked, .radioLabel:hover {
+    width: var(--formRowHeight);
+    height: var(--formRowHeight);
+    margin: 0 5px;
+}
+
+#shapeRow .radioLabel.checked, #shapeRow .radioLabel:hover {
+    height: calc(var(--formRowHeight) * 2);
+}
+
+.radioLabel:not(.dieFace) {
+    border: 2px solid transparent;
+}
+
+.radioLabel, .radioLabel svg {
+    appearance: button;
+    cursor: pointer;
+}
+
+.radioButton {
+    display: none;
+}
+
+/* SUBMIT */
+
+.submit {
+    --hue: 209;
+    --saturation: 61.6%;
+    --background-brightness: 50%;
+
+    /* Block display and auto-horizontal margins center <input type="submit"> */
+    display: block;
+    margin: 0 auto;
+
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: hsl(var(--hue) var(--saturation) var(--background-brightness));
+    padding: 8px 24px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    outline: none;
+
+    transition: background-color var(--delay);
+}
+
+.submit:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.submit:disabled, .blackAndWhite {
+    filter: grayscale(1);
+}
+
+.submit:hover:not(:disabled) {
+    background-color: hsl(var(--hue) var(--saturation) calc(var(--background-brightness) * 0.9));
+}
+
+/* active style must be defined after hover style so that it takes precedence! */
+.submit:active:not(:disabled) {
+    background-color: hsl(var(--hue) var(--saturation) calc(var(--background-brightness) * 0.6));
+}

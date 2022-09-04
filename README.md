@@ -6,6 +6,8 @@
 
 SET Revision is a website to help you identify "sets" in the card game SET.
 
+The code in this repository is aimed for learners of React and TypeScript, hence the usage of `// TUTORIAL` comments.
+
 ## About SET
 
 The aim of SET is to identify "sets".
