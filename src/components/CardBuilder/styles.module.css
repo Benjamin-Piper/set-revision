@@ -1,0 +1,150 @@
+* {
+    --formRowHeight: 40px;
+}
+
+/* FORM */
+
+.formRow {
+    height: var(--formRowHeight);
+    margin: 10px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+#shapeRow {
+    height: calc(var(--formRowHeight) * 2)
+}
+
+/*
+  There is some tricky CSS logic when it comes to the growth of .radioLabel
+  Careful calculation is done so that the growth does not push other row elements out of the way
+
+  (Perhaps in the future this will be rewritten using https://sass-lang.com/)
+
+  Keep in mind: this website uses box-sizing: border-box
+  Ignore height: the .formRow height is fixed and so height change in .radioLabel has no effect
+  Ignore padding and border: these values do not change
+
+  Any change in width must be compensated for with change in margin.
+  It's a bit hard to see here because CSS applies the margin value set to BOTH sides.
+
+  When done correctly, no elements are pushed out of the way.
+
+  Let's see:
+*/
+
+/*
+  .radioLabel is small: width 20px, left + right margin = 40px
+  20 + 40 = 60
+*/
+
+.radioLabel {
+    width: calc(var(--formRowHeight) / 2);
+    height: calc(var(--formRowHeight) / 2);
+    margin: 0 20px;
+
+    transition: var(--delay);
+}
+
+.radioLabel.dieFace {
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.radioLabel:not(.dieFace) {
+    border: 2px solid transparent;
+}
+
+#shapeRow .radioLabel {
+    height: var(--formRowHeight);
+}
+
+/*
+  .radioLabel is large: width 40px, left + right margin = 20px
+  40 + 20 = 60
+*/
+
+.radioLabel.checked, .radioLabel.checked:hover, .radioLabel:hover {
+    width: var(--formRowHeight);
+    height: var(--formRowHeight);
+    margin: 0 10px;
+}
+
+#shapeRow .radioLabel.checked, #shapeRow .radioLabel.checked:hover, #shapeRow .radioLabel:hover {
+    height: calc(var(--formRowHeight) * 2);
+}
+
+.radioLabel, .radioLabel svg {
+    appearance: button;
+    cursor: pointer;
+}
+
+.radioButton {
+    display: none;
+}
+
+/* SUBMIT */
+
+.submit {
+    --hue: 209;
+    --saturation: 61.6%;
+    --background-brightness: 50%;
+
+    /* Block display and auto-horizontal margins center <input type="submit"> */
+    display: block;
+    margin: 0 auto;
+
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: hsl(var(--hue) var(--saturation) var(--background-brightness));
+    padding: 8px 24px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    outline: none;
+
+    transition: background-color var(--delay);
+}
+
+.submit:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.submit:disabled, .blackAndWhite {
+    filter: grayscale(1);
+}
+
+.submit:hover:not(:disabled) {
+    background-color: hsl(var(--hue) var(--saturation) calc(var(--background-brightness) * 0.9));
+}
+
+/* active style must be defined after hover style so that it takes precedence! */
+.submit:active:not(:disabled) {
+    background-color: hsl(var(--hue) var(--saturation) calc(var(--background-brightness) * 0.6));
+}
+
+@media screen and (min-width: 880px) {
+    * {
+        --formRowHeight: 60px;
+    }
+
+    .dieFace {
+        padding: 0;
+        border: 2px solid black;
+    }
+
+    /* Same CSS logic here */
+
+    .radioLabel {
+        margin: 0 30px;
+    }
+
+    .radioLabel.checked, .radioLabel.checked:hover, .radioLabel:hover {
+        margin: 0 15px;
+    }
+}

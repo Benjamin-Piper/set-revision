@@ -1,0 +1,7 @@
+.correct {
+    box-shadow: var(--box-shadow-dimensions) rgba(0, 180, 0, 0.7);
+}
+
+.incorrect {
+    box-shadow: var(--box-shadow-dimensions) rgba(180, 0, 0, 0.7);
+}
