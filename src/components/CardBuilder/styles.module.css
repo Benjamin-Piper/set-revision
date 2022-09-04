@@ -16,6 +16,29 @@
     height: calc(var(--formRowHeight) * 2)
 }
 
+/*
+  There is some tricky CSS logic when it comes to the growth of .radioLabel
+  Careful calculation is done so that the growth does not push other row elements out of the way
+
+  (Perhaps in the future this will be rewritten using https://sass-lang.com/)
+
+  Keep in mind: this website uses box-sizing: border-box
+  Ignore height: the .formRow height is fixed and so height change in .radioLabel has no effect
+  Ignore padding and border: these values do not change
+
+  Any change in width must be compensated for with change in margin.
+  It's a bit hard to see here because CSS applies the margin value set to BOTH sides.
+
+  When done correctly, no elements are pushed out of the way.
+
+  Let's see:
+*/
+
+/*
+  .radioLabel is small: width 20px, left + right margin = 24px
+  20 + 24 = 44
+*/
+
 .radioLabel {
     width: calc(var(--formRowHeight) / 2);
     height: calc(var(--formRowHeight) / 2);
@@ -37,6 +60,11 @@
 #shapeRow .radioLabel {
     height: var(--formRowHeight);
 }
+
+/*
+  .radioLabel is large: width 40px, left + right margin = 4px
+  40 + 4 = 44
+*/
 
 .radioLabel.checked, .radioLabel:hover {
     width: var(--formRowHeight);
@@ -109,6 +137,8 @@
         padding: 0;
         border: 2px solid black;
     }
+
+    /* Same CSS logic here */
 
     .radioLabel {
         margin: 0 20px;
