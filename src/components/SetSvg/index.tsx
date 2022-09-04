@@ -63,6 +63,7 @@ function SetSvg({ className, colour, shading, shape, stripesId }: Props) {
         <svg
             className={className}
             xmlns="http://www.w3.org/2000/svg"
+            height="100%" // <svg> literally doesn't render on iOS without this
             viewBox="0 0 100 200"
         >
             <StripesPattern
