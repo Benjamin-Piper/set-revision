@@ -1,12 +1,12 @@
 .blankCard {
     width: 300px;
     height: 100px;
+    padding: 10px 0;
 
-    padding: 20px 0;
     border-radius: 10px;
     box-shadow: var(--box-shadow-dimensions) rgba(0,0,0,0.3);
     margin: 20px;
-    margin-top: 5px;
+    margin-top: 0px;
 
     display: flex;
     justify-content: center;
@@ -22,5 +22,7 @@
     .blankCard {
         width: 400px;
         height: 150px;
+        padding: 20px 0;
+        margin-top: 5px;
     }
 }

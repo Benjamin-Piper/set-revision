@@ -12,6 +12,9 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 
+    -webkit-tap-highlight-color: transparent;
+
     --box-shadow-dimensions: 5px 5px 15px 5px;
     --delay: 0.2s;
 }
+

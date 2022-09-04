@@ -35,14 +35,14 @@
 */
 
 /*
-  .radioLabel is small: width 20px, left + right margin = 24px
-  20 + 24 = 44
+  .radioLabel is small: width 20px, left + right margin = 40px
+  20 + 40 = 60
 */
 
 .radioLabel {
     width: calc(var(--formRowHeight) / 2);
     height: calc(var(--formRowHeight) / 2);
-    margin: 0 12px;
+    margin: 0 20px;
 
     transition: var(--delay);
 }
@@ -62,17 +62,17 @@
 }
 
 /*
-  .radioLabel is large: width 40px, left + right margin = 4px
-  40 + 4 = 44
+  .radioLabel is large: width 40px, left + right margin = 20px
+  40 + 20 = 60
 */
 
-.radioLabel.checked, .radioLabel:hover {
+.radioLabel.checked, .radioLabel.checked:hover, .radioLabel:hover {
     width: var(--formRowHeight);
     height: var(--formRowHeight);
-    margin: 0 2px;
+    margin: 0 10px;
 }
 
-#shapeRow .radioLabel.checked, #shapeRow .radioLabel:hover {
+#shapeRow .radioLabel.checked, #shapeRow .radioLabel.checked:hover, #shapeRow .radioLabel:hover {
     height: calc(var(--formRowHeight) * 2);
 }
 
@@ -141,10 +141,10 @@
     /* Same CSS logic here */
 
     .radioLabel {
-        margin: 0 20px;
+        margin: 0 30px;
     }
 
-    .ardioLabel.checked, .radioLabel:hover {
-        margin: 0 5px;
+    .radioLabel.checked, .radioLabel.checked:hover, .radioLabel:hover {
+        margin: 0 15px;
     }
 }
