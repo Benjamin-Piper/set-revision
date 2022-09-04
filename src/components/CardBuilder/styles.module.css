@@ -1,10 +1,5 @@
 * {
-    --formRowHeight: 60px;
-}
-
-.dieFace {
-    border: 2px solid black;
-    border-radius: 10px;
+    --formRowHeight: 40px;
 }
 
 /* FORM */
@@ -24,9 +19,19 @@
 .radioLabel {
     width: calc(var(--formRowHeight) / 2);
     height: calc(var(--formRowHeight) / 2);
-    margin: 0 20px;
+    margin: 0 12px;
 
     transition: var(--delay);
+}
+
+.radioLabel.dieFace {
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.radioLabel:not(.dieFace) {
+    border: 2px solid transparent;
 }
 
 #shapeRow .radioLabel {
@@ -36,15 +41,11 @@
 .radioLabel.checked, .radioLabel:hover {
     width: var(--formRowHeight);
     height: var(--formRowHeight);
-    margin: 0 5px;
+    margin: 0 2px;
 }
 
 #shapeRow .radioLabel.checked, #shapeRow .radioLabel:hover {
     height: calc(var(--formRowHeight) * 2);
-}
-
-.radioLabel:not(.dieFace) {
-    border: 2px solid transparent;
 }
 
 .radioLabel, .radioLabel svg {
@@ -97,4 +98,23 @@
 /* active style must be defined after hover style so that it takes precedence! */
 .submit:active:not(:disabled) {
     background-color: hsl(var(--hue) var(--saturation) calc(var(--background-brightness) * 0.6));
+}
+
+@media screen and (min-width: 880px) {
+    * {
+        --formRowHeight: 60px;
+    }
+
+    .dieFace {
+        padding: 0;
+        border: 2px solid black;
+    }
+
+    .radioLabel {
+        margin: 0 20px;
+    }
+
+    .ardioLabel.checked, .radioLabel:hover {
+        margin: 0 5px;
+    }
 }

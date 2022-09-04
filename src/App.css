@@ -1,5 +1,5 @@
 .card-holder {
-    display: flex;
+    display: block;
 }
 
 .wrapper {
@@ -9,4 +9,10 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+}
+
+@media screen and (min-width: 880px) {
+    .card-holder {
+        display: flex;
+    }
 }
