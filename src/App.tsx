@@ -22,7 +22,7 @@ const initialiseCards: () => TwoCards = () => {
 
     return {
         firstCard: deck[firstCardIndex],
-        secondCard: deck[secondCardIndex],
+        secondCard: strippedDeck[secondCardIndex],
     };
 };
 
