@@ -265,7 +265,9 @@ function CardBuilder({ onSubmit, submissionStatus }: CardBuilderProps) {
                 <input
                     className={styles.submit}
                     type="submit"
-                    disabled={!isCardCompletelyBuilt}
+                    disabled={
+                        !isCardCompletelyBuilt || submissionStatus === "Correct"
+                    }
                     value="Submit"
                 />
             </form>
